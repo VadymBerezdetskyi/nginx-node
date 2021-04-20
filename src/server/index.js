@@ -1,13 +1,20 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import { server } from './server.js';
 
-const app = express();
 
-app.use(bodyParser.json({ limit: '50mb' }));
+const http = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+http.use(bodyParser.json({ limit: '50mb' }));
+
+http.post('/json-rpc', (req, res) => {
+  server.receive(req.body).then(response => {
+    if (response) {
+      res.json(response);
+    } else {
+      res.sendStatus(204);
+    }
+  });
 });
 
-app.all('*', (req, res) => res.status(404).json({ error: `Cannot ${req.method} ${req.path}` }));
-app.listen(8081, () => console.log('Server is up and running'));
+http.listen(8081, () => console.log('Server is up and running'));

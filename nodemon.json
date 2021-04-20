@@ -1,6 +1,6 @@
 {
   "watch": ["src/server"],
-  "ext": "ts",
+  "ext": "js",
   "ignore": ["src/server/public"],
   "exec": "NODE_ENV=development node src/server/index.js"
 }
