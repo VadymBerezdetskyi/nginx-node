@@ -1,6 +1,3 @@
-
-
-
 const button = document.querySelector('#submit');
 const result = document.querySelector('#result');
 button.addEventListener('click', () => {
@@ -14,7 +11,7 @@ button.addEventListener('click', () => {
         "id": 12314,
         "method": "echo",
         "params": {
-            "text": "asdfsdfds"
+            "text": "Test message"
         }
     }),
 }).then((response) => {

@@ -1,0 +1,9 @@
+web_addr: 0.0.0.0:4040
+update: false
+log: stdout
+region: eu
+tunnels:
+  extension:
+    addr: nginx:80
+    proto: http
+    host_header: localhost
